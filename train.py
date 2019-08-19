@@ -1,3 +1,4 @@
+
 import torch.optim as optim
 import torch
 import cv2
@@ -9,7 +10,7 @@ import numpy as np
 import os
 import Net.net as Net
 import Net.loss as Loss
-import ConfigParser
+import configparser
 import time
 import evaluate
 import logging
@@ -18,10 +19,14 @@ import copy
 import random
 import matplotlib.pyplot as plt
 
+
 DRAW_PREFIX = './anchor_draw'
-MSRA = '/home/ljs/data_ready/MSRA_TD500'
-ALI = '/home/ljs/data_ready/ali_icpr'
-DATASET_LIST = [MSRA, ALI]
+# MSRA = '/home/ljs/data_ready/MSRA_TD500'
+# ALI = '/home/ljs/data_ready/ali_icpr'
+# DATASET_LIST = [MSRA, ALI]
+
+
+DATASET_LIST = ['E:/Download/textDetection/splits']
 MODEL_SAVE_PATH = '/model'
 
 
@@ -71,7 +76,7 @@ def draw_loss_plot(train_loss_list=[], test_loss_list=[]):
 
 
 if __name__ == '__main__':
-    cf = ConfigParser.ConfigParser()
+    cf = configparser.ConfigParser()
     cf.read('./config')
 
     log_dir = './logs_10'
