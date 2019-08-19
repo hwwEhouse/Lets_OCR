@@ -1,4 +1,5 @@
 
+
 import torch.optim as optim
 import torch
 import cv2
@@ -31,6 +32,7 @@ MODEL_SAVE_PATH = './model'
 
 
 def loop_files(path):
+
     files = []
     l = os.listdir(path)
     for f in l:
@@ -39,27 +41,34 @@ def loop_files(path):
 
 
 def create_train_val():
+
     train_im_list = []
     test_im_list = []
     train_gt_list = []
     test_gt_list = []
+
     for dataset in DATASET_LIST:
+
         trains_im_path =os.path.join(dataset, 'train_im')
         tests_im_path = os.path.join(dataset, 'test_im')
         trains_gt_path =os.path.join(dataset, 'train_gt')
         test_gt_path = os.path.join(dataset, 'test_gt')
+
         train_im = loop_files(trains_im_path)
         train_gt = loop_files(trains_gt_path)
         test_im = loop_files(tests_im_path)
         test_gt = loop_files(test_gt_path)
+
         train_im_list += train_im
         test_im_list += test_im
         train_gt_list += train_gt
         test_gt_list += test_gt
+
     return train_im_list, train_gt_list, test_im_list, test_gt_list
 
 
 def draw_loss_plot(train_loss_list=[], test_loss_list=[]):
+
     x1 = range(0, len(train_loss_list))
     x2 = range(0, len(test_loss_list))
     y1 = train_loss_list
