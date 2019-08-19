@@ -26,7 +26,7 @@ DRAW_PREFIX = './anchor_draw'
 # DATASET_LIST = [MSRA, ALI]
 
 
-DATASET_LIST = ['E:/Download/textDetection/splits']
+DATASET_LIST = ['/home/huweiwei/data/OCR/']
 MODEL_SAVE_PATH = '/model'
 
 
@@ -76,6 +76,7 @@ def draw_loss_plot(train_loss_list=[], test_loss_list=[]):
 
 
 if __name__ == '__main__':
+    
     cf = configparser.ConfigParser()
     cf.read('./config')
 
